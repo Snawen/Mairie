@@ -15,14 +15,15 @@ class AppFixtures extends Fixture
         $faker = Factory::create();
         // $product = new Product();
         // $manager->persist($product);
-        $art = new Articles();
-        $art->setTitre($faker->word);
-        $art->setAuteur($faker->name);
-        $art->setContenu($faker->sentence($nbWords = 6, $variableNbWords = true));
-        $art->setDate($faker->dateTime);
-        
-        $manager->persist($art);
-        
+        for ($i = 0 ; $i < 10 ; $i++){
+            $art = new Articles();
+            $art->setTitre($faker->word);
+            $art->setAuteur($faker->name);
+            $art->setContenu($faker->sentence);
+            $art->setDate($faker->dateTime);
+            
+            $manager->persist($art);
+        }
         
 
         $manager->flush();
